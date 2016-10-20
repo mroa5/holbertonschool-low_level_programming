@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * print_line - print _
- *
+ * @n: input
  */
 void print_line(int n)
 {
