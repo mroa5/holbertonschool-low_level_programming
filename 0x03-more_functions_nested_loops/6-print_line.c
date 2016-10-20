@@ -5,7 +5,7 @@
  */
 void print_line(int n)
 {
-        int x;
+	int x;
 
 	x = 0;
 	while (x < n)
