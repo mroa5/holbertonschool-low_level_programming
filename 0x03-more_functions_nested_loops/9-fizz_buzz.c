@@ -22,6 +22,5 @@ int main(void)
 		printf(" ");
 		x++;
 	}
-	putchar('\n');
 	return (0);
 }
