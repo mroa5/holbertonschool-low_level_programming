@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "holberton.h"
 /**
  * main - entry point
  *
@@ -22,5 +23,6 @@ int main(void)
 		printf(" ");
 		x++;
 	}
+	printf("\n");
 	return (0);
 }
