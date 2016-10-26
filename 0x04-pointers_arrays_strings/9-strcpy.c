@@ -9,7 +9,7 @@
 char *_strcpy(char *dest, char *src)
 {
 	int x;
-	char *a;
+/*	char *a; */
 
 	x = 0;
 	while (src[x] != '\0')
@@ -18,6 +18,6 @@ char *_strcpy(char *dest, char *src)
 		x++;
 	}
 	dest[x] = src[x];
-	a = dest;
-	return (a);
+/*	a = dest; */
+	return (dest);
 }
