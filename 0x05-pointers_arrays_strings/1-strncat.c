@@ -1,5 +1,6 @@
 #include "holberton.h"
 /**
+ * _strncat - get n bytes from str
  * @dest: destination
  * @src: source
  * @n: number of bytes
@@ -12,11 +13,11 @@ char *_strncat(char *dest, char *src, int n)
 
 	x = 0;
 	y = 0;
-	while(dest[x] != '\0')
+	while (dest[x] != '\0')
 		x++;
-	while(y != n && src[y] != '\0')
+	while (y != n && src[y] != '\0')
 	{
-       		dest[x++] = src[y++];
+		dest[x++] = src[y++];
 	}
 	dest[x] = '\0';
 	return (dest);
