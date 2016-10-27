@@ -4,6 +4,7 @@
  * @dest: destination
  * @src: source
  *
+ * Return: dest
  */
 char *_strcat(char *dest, char *src)
 {
@@ -19,5 +20,5 @@ char *_strcat(char *dest, char *src)
 	{
 		dest[x++] = src[y++];
 	}
-	return(dest);
+	return (dest);
 }
