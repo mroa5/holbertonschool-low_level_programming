@@ -1,7 +1,8 @@
 #include "holberton.h"
 /**
- * rot13 - turn str into rot13
- * @p: str
+ * rot13 - convert str to rot13
+ * @p: string to convert to rot13
+ *
  * Return: p
  */
 char *rot13(char *p)
@@ -14,13 +15,11 @@ char *rot13(char *p)
 		while ((p[x] >= 'a' && p[x] <= 'z') ||
 		       (p[x] >= 'A' && p[x] <= 'Z'))
 		{
-			if ((p[x] >= 'n' && p[x] <= 'z') ||
-			    (p[x] >= 'N' && p[x] <= 'Z'))
-				{
-					p[x] -= 13;
-				}
+			if ((p[x] >= 'N' && p[x] <= 'Z') ||
+			    (p[x] >= 'n' && p[x] <= 'z'))
+				p[x] -= 13;
 			else
-					p[x] += 13;
+				p[x] += 13;
 			x++;
 		}
 		x++;
