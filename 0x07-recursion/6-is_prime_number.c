@@ -14,7 +14,7 @@ int prime_help(int n, int x)
 		return (0);
 	if (x > (n / 2))
 		return (1);
-	return (prime_helper(n, ++x));
+	return (prime_help(n, ++x));
 }
 
 /**
