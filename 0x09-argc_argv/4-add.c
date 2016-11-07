@@ -9,18 +9,25 @@
  */
 int main(int argc, char *argv[])
 {
-	int i;
-	int sum = 0;
+	int total, i;
+	char *c;
+	int num;
 
-	for (i = 1; i < argc; i++)
+	total = 0;
+	if (argc > 1)
 	{
-		if (atoi(argv[i]) <= 0)
+		for (i = 1; argv[i]; i++)
 		{
-			printf("Error\n");
-			return (1);
+			num = strtol(argv[i], &c, 10);
+			if (!*c)
+				total += num;
+			else
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		sum += atoi(argv[i]);
 	}
-	printf("%d\n", sum);
+	printf("%d\n", total);
 	return (0);
 }
