@@ -37,8 +37,8 @@ char *create_array(unsigned int size, char c)
 	char *s;
 	int arsize;
 
-	if (size > 0 && size != NULL)
-		arsize = (sizeof(char) * (int)size);
+	if (size > 0)
+		arsize = (sizeof(char) * size);
 	else
 		return (NULL);
 	s = malloc(arsize);
