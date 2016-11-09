@@ -81,17 +81,18 @@ char *str_concat(char *s1, char *s2)
  */
 char *argstostr(int ac, char **av)
 {
-	char *string;
+	char *s;
 	int len;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	string = str_concat(av[0], "\n");
+	s = str_concat(av[0], "\n");
 	len = 1;
 	while (len != ac)
 	{
-		string = str_concat(string, av[len++]);
-		string = str_concat(string, "\n");
+		s = str_concat(s, av[len]);
+		s = str_concat(s, "\n");
+		len++;
 	}
-	return (string);
+	return (s);
 }
