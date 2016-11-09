@@ -19,53 +19,56 @@ int _strlen(char *s)
 	return (i);
 }
 /**
- * _strcpy - copy str
- * @dest: temp string
- * @src: source string
+ * _strncat - get n bytes from str
+ * @dest: destination
+ * @src: source
+ * @n: number of bytes
  *
  * Return: dest
  */
-char *_strcpy(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
-	int i;
-	char *retval;
+	int x, y;
 
-	i = 0;
-	while (src[i] != '\0')
+	x = 0;
+	y = 0;
+	while (dest[x] != '\0')
+		x++;
+	while (y != n && src[y] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		dest[x++] = src[y++];
 	}
-	dest[i] = src[i];
-
-	retval = dest;
-
-	return (retval);
+	dest[x] = '\0';
+	return (dest);
 }
 
 /**
- * str_concat - concatenates two strings to a new string
- *
- *
- * @s1: first string
- * @s2: second string
- * Return: returns pointer to completed string
+ * str_concat - concatenates two strings
+ * @s1: string 1
+ * @s2: string 2
+ * Return: s1 and s2 concatenated otherwise NULL
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *new;
-	int i, j, size;
+	int i, n;
+	char *s;
 
-	size = (_strlen(s1) + _strlen(s2) + 1);
-	new = malloc(size);
-	if (new == NULL)
-		return (NULL);
-	_strcpy(new, s1);
-	i = _strlen(s1);
-	for (i = _strlen(s1), j = 0; i != size && s2[j] != '\0'; i++, j++)
-		new[i] = s2[j];
-	new[i] = '\0';
-	return (new);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	s = malloc(_strlen(s1) + _strlen(s2) + 1);
+
+	n = 0;
+	while (s1[n] != '\0')
+		n++;
+	_strncat(s, s1, n);
+	i = 0;
+	while (s2[i] != '\0')
+		i++;
+	_strncat(s, s2, i);
+	return (s);
+
 }
 
 /**
