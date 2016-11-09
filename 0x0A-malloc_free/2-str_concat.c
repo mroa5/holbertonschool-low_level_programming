@@ -7,7 +7,7 @@
  * @s: string
  * Return: length of str
  */
-int str_len(char *str)
+int _strlen(char *s)
 {
 	int i = 0;
 
@@ -29,6 +29,11 @@ char *str_concat(char *s1, char *s2)
 	char *c;
 	int i;
 
+
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 	c = malloc(sizeof(*s1) + sizeof(*s2));
 
 	if (c == NULL)
