@@ -37,7 +37,7 @@ char *create_array(unsigned int size, char c)
 	char *s;
 	int arsize;
 
-	if (size > 0)
+	if (size > 0 && size != NULL)
 		arsize = (sizeof(char) * (int)size);
 	else
 		return (NULL);
