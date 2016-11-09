@@ -81,22 +81,28 @@ char *str_concat(char *s1, char *s2)
  */
 char *argstostr(int ac, char **av)
 {
-	char *s;
-	int i;
+	char *string;
+	int len, i;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	s = str_concat(av[0], "\n");
-	if (s == NULL)
-		return (NULL);
-	i = 1;
-	while (i != ac)
+	len = 1;
+	i = 0;
+	while (i < ac)
 	{
-		s = str_concat(s, av[i]);
-		s = str_concat(s, "\n");
+		len += _strlen(av[i]) + 1;
 		i++;
 	}
-	if (!s)
+	string = malloc(len * sizeof(char));
+	if (string == NULL)
 		return (NULL);
-	return (s);
+	i = 0;
+	while (i < ac)
+	{
+		str_concat(string, av[i++]);
+		str_concat(string, "\n");
+	}
+	if (!string)
+		return (NULL);
+	return (string);
 }
