@@ -11,11 +11,35 @@ int _strlen(char *s)
 {
 	int i = 0;
 
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
 		i++;
 	}
 	return (i);
+}
+#include "holberton.h"
+/**
+ * _strncat - get n bytes from str
+ * @dest: destination
+ * @src: source
+ * @n: number of bytes
+ *
+ * Return: dest
+ */
+char *_strncat(char *dest, char *src, int n)
+{
+	int x, y;
+
+	x = 0;
+	y = 0;
+	while (dest[x] != '\0')
+		x++;
+	while (y != n && src[y] != '\0')
+	{
+		dest[x++] = src[y++];
+	}
+	dest[x] = '\0';
+	return (dest);
 }
 
 /**
@@ -26,33 +50,23 @@ int _strlen(char *s)
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *c;
-	int i;
-
+	int i, n;
+	char *s;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	c = malloc(sizeof(*s1) + sizeof(*s2));
+	s = malloc(_strlen(s1) + _strlen(s2) + 1);
 
-	if (c == NULL)
-	{
-		return (NULL);
-	}
-
+	n = 0;
+	while (s1[n] != '\0')
+		n++;
+	_strncat(s, s1, n);
 	i = 0;
-	while (*s1 != '\0')
-	{
-		c[i] = *s1;
-		s1++;
+	while (s2[i] != '\0')
 		i++;
-	}
-	while (*s2 != '\0')
-	{
-		c[i] = *s2;
-		s2++;
-		i++;
-	}
-	return (c);
+	_strncat(s, s2, i);
+	return (s);
+
 }
