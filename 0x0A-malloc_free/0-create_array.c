@@ -37,7 +37,10 @@ char *create_array(unsigned int size, char c)
 	char *s;
 	int arsize;
 
-	arsize = (sizeof(char) * (int)size);
+	if (size > 0)
+		arsize = (sizeof(char) * (int)size);
+	else
+		return (NULL);
 	s = malloc(arsize);
 	_memset(s, c, size);
 	return (s);
