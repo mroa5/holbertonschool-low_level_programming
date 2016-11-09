@@ -72,27 +72,29 @@ char *str_concat(char *s1, char *s2)
 }
 
 /**
- * argstostr - concats together program arguments into one string
+ * argstostr - concats program args into one string
  *
  *
- * @ac: argument count
- * @av: arguments
+ * @ac: arg count
+ * @av: args
  * Return: returns pointer to completed string
  */
 char *argstostr(int ac, char **av)
 {
 	char *s;
-	int len;
+	int i;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 	s = str_concat(av[0], "\n");
-	len = 1;
-	while (len != ac)
+	if (s == NULL)
+		return (NULL);
+	i = 1;
+	while (i != ac)
 	{
-		s = str_concat(s, av[len]);
+		s = str_concat(s, av[i]);
 		s = str_concat(s, "\n");
-		len++;
+		i++;
 	}
 	return (s);
 }
