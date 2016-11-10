@@ -66,7 +66,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	y = _strlen(s2) + 1;
 	if (n >= y)
 	{
- 		_strncat(s, s2, y);
+		_strncat(s, s2, y);
 	}
 	else
 		_strncat(s, s2, n);
