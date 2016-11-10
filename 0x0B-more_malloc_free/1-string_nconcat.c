@@ -45,7 +45,7 @@ char *_strncat(char *dest, char *src, int n)
  * @s2: str 2
  * @n: n bytes of str 2 to concat
  *
- * Return: concat str
+ * Return: concat str || NULL if it fails
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
@@ -63,7 +63,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (s1[i] != '\0')
 		i++;
 	_strncat(s, s1, i);
-	y = _strlen(s2) + 1;
+	y = _strlen(s2);
 	if (n > y)
 	{
 		_strncat(s, s2, y);
