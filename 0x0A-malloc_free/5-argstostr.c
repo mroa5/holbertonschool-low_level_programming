@@ -5,9 +5,11 @@
 
 
 /**
- * _strlen - length of str
- * @s: string
- * Return: length of str
+ * _strlen - returns the length of a given string
+ *
+ *
+ * @s: string to check the length of
+ * Return: returns the length of the string
  */
 int _strlen(char *s)
 {
@@ -18,70 +20,38 @@ int _strlen(char *s)
 		i++;
 	return (i);
 }
-/**
- * _strncat - get n bytes from str
- * @dest: destination
- * @src: source
- * @n: number of bytes
- *
- * Return: dest
- */
-char *_strncat(char *dest, char *src, int n)
-{
-	int x, y;
 
-	x = 0;
-	y = 0;
-	while (dest[x] != '\0')
-		x++;
-	while (y != n && src[y] != '\0')
-	{
-		dest[x++] = src[y++];
-	}
-	dest[x] = '\0';
+/**
+ * _strcat - concat strings, src appended to dest
+ *
+ * @dest: destination string
+ * @src: source string
+ * Return: returns finished string
+ */
+char *_strcat(char *dest, char *src)
+{
+	int i, j;
+
+	i = j = 0;
+	while (dest[i] != '\0')
+		i++;
+	while (src[j] != '\0')
+		dest[i++] = src[j++];
+	dest[i] = '\0';
 	return (dest);
 }
 
 /**
- * str_concat - concatenates two strings
- * @s1: string 1
- * @s2: string 2
- * Return: s1 and s2 concatenated otherwise NULL
- */
-char *str_concat(char *s1, char *s2)
-{
-	int i, n;
-	char *s;
-
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-	s = malloc(_strlen(s1) + _strlen(s2) + 1);
-
-	n = 0;
-	while (s1[n] != '\0')
-		n++;
-	_strncat(s, s1, n);
-	i = 0;
-	while (s2[i] != '\0')
-		i++;
-	_strncat(s, s2, i);
-	return (s);
-
-}
-
-/**
- * argstostr - concats program args into one string
+ * argstostr - concats together program arguments into one string
  *
  *
- * @ac: arg count
- * @av: args
+ * @ac: argument count
+ * @av: arguments
  * Return: returns pointer to completed string
  */
 char *argstostr(int ac, char **av)
 {
-	char *string;
+	char *s;
 	int len, i;
 
 	if (ac == 0 || av == NULL)
@@ -93,16 +63,16 @@ char *argstostr(int ac, char **av)
 		len += _strlen(av[i]) + 1;
 		i++;
 	}
-	string = malloc(len * sizeof(char));
-	if (string == NULL)
+	s = malloc(len * sizeof(char));
+	if (s == NULL)
 		return (NULL);
 	i = 0;
 	while (i < ac)
 	{
-		str_concat(string, av[i++]);
-		str_concat(string, "\n");
+		_strcat(s, av[i++]);
+		_strcat(s, "\n");
 	}
-	if (!string)
+	if (!s)
 		return (NULL);
-	return (string);
+	return (s);
 }
