@@ -50,7 +50,7 @@ char *_strncat(char *dest, char *src, int n)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *s;
-	unsigned int i, y, x;
+	unsigned int i, y;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -67,7 +67,5 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n > y)
 		n = y;
 	_strncat(s, s2, n);
-	x = _strlen(s) + 1;
-	s[x] = '\0';
 	return (s);
 }
