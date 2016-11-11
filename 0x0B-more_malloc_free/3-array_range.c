@@ -3,8 +3,8 @@
 #include <stdlib.h>
 /**
  * array_range - create an array of integers
- * @min - int min
- * @max - int max
+ * @min: int min
+ * @max: int max
  *
  * Return: s || NULL
  */
