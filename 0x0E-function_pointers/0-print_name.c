@@ -1,7 +1,8 @@
+
 /**
- *
- **
- *
+ * print_name - prints name
+ * @name: name passed
+ * @f: function passed
  */
 void print_name(char *name, void (*f)(char *))
 {
