@@ -1,7 +1,12 @@
 #include "3-calc.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+/**
+ * get_op_func - get operation function to return to main
+ * @s: pointer to op in ops
+ *
+ * Return: pointer to function || NULL
+ */
 int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {

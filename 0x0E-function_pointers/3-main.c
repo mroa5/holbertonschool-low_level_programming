@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "3-calc.h"
-
+/**
+ * main - main
+ * @argc: number of args
+ * @argv: string of args
+ *
+ * Return: 0
+ */
 int main(int argc, char *argv[])
 {
 	int a, b;
